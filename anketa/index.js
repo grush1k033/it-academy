@@ -1,5 +1,3 @@
-
-
 const questions = {
     surname: 'Какая ваша фамилия?',
     name: 'Какое ваше имя?',
@@ -13,22 +11,31 @@ const defaultValues = {
     middleName: 'Иванович',
     age: 0,
 }
-let surname = '';
-let name = ''
-let middleName = '';
+
 let age;
 let isPension = ''
 
+function getInput(question, defaultValue) {
+    let input;
+    do {
+        input = prompt(question, defaultValue)
+    } while (!input || !isNaN(input) || input.includes(' '));
+    return input;
+}
+let surname = getInput(questions.surname, defaultValues.surname);
+let name = getInput(questions.name, defaultValues.name);
+let middleName = getInput(questions.middleName, defaultValues.middleName);
 
-while(!isNaN(surname) || surname.includes(' ')) {
-    surname = (prompt(questions.surname, defaultValues.surname))
-}
-while(!isNaN(name) || name.includes(' ')) {
-    name = (prompt(questions.name, defaultValues.name))
-}
-while(!isNaN(middleName) || middleName.includes(' ')) {
-    middleName = (prompt(questions.middleName, defaultValues.middleName))
-}
+
+// while(!isNaN(surname) || surname.includes(' ')) {
+//     surname = (prompt(questions.surname, defaultValues.surname))
+// }
+// while(!isNaN(name) || name.includes(' ')) {
+//     name = (prompt(questions.name, defaultValues.name))
+// }
+// while(!isNaN(middleName) || middleName.includes(' ')) {
+//     middleName = (prompt(questions.middleName, defaultValues.middleName))
+// }
 
 while(true) {
     age = (prompt(questions.age, defaultValues.age))
